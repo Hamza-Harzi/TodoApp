@@ -1,15 +1,9 @@
 <script setup lang="ts">
 const input = ref("");
-const { data: todos } = useFetch("/api/todo");
-const addTodo = async () => {
-  if (!input) return;
-  await $fetch("/api/todo", { method: "post", body: { item: input.value } });
-};
-const updateTodo = async (id) => {
-  await $fetch(`/api/todo/${id}`, { method: "put" });
-};
-const deleteTodo = async (id) => {
-  await $fetch(`/api/todo/${id}`, { method: "delete" });
+const { todos, addTodo, updateTodo, deleteTodo } = useTodos();
+const handleClick = () => {
+  addTodo(input.value);
+  input.value = "";
 };
 </script>
 
