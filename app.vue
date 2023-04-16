@@ -13,7 +13,7 @@ const handleClick = () => {
       <h1>My Todos</h1>
       <div class="add-todo">
         <input placeholder="Add a new todo..." v-model="input" />
-        <NButton @click="addTodo">Add</NButton>
+        <NButton @click="handleClick">Add</NButton>
       </div>
       <NCard
         @click="() => updateTodo(todo.id)"
@@ -39,6 +39,7 @@ const handleClick = () => {
 }
 input {
   outline: none;
+  width: 30rem;
 }
 .add-todo {
   display: flex;
